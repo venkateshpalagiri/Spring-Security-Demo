@@ -1,4 +1,4 @@
-package com.venkatesh.spring.security.demo;
+package com.venkatesh.spring.security.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ public class HiController {
 	public String sayHi() {
 		return "Hi Everyone!";
 	}
-	@GetMapping("/Hello")
+	@GetMapping("/hello")
 	public String sayHello() {
 		return "Hello Everyone!";
 	}
