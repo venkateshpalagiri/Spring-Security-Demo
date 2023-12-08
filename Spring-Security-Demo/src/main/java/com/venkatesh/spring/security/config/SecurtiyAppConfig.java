@@ -16,27 +16,42 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity(debug=true)
 public class SecurtiyAppConfig {
-	@Bean
-	InMemoryUserDetailsManager setUpUser(){
 	
-//	GrantedAuthority role=new SimpleGrantedAuthority("admin");
-//	GrantedAuthority role1=new SimpleGrantedAuthority("user");
-	ArrayList<GrantedAuthority> authoritiesList=new ArrayList<GrantedAuthority>();
-//	authoritiesList.add(role);
-//	authoritiesList.add(role1);
 	
-	authoritiesList.add(new SimpleGrantedAuthority("admin"));
-	authoritiesList.add(new SimpleGrantedAuthority("user"));
 	
-	UserDetails venkyUser=new User("venky","123",authoritiesList);
-	InMemoryUserDetailsManager inMemoryUserDetailsManager=new InMemoryUserDetailsManager();
-	inMemoryUserDetailsManager.createUser(venkyUser);
-	return inMemoryUserDetailsManager;
 	
-	}
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	@Bean
+//	InMemoryUserDetailsManager setUpUser(){
+//	
+////	GrantedAuthority role=new SimpleGrantedAuthority("admin");
+////	GrantedAuthority role1=new SimpleGrantedAuthority("user");
+//	ArrayList<GrantedAuthority> authoritiesList=new ArrayList<GrantedAuthority>();
+////	authoritiesList.add(role);
+////	authoritiesList.add(role1);
+//	
+//	authoritiesList.add(new SimpleGrantedAuthority("admin"));
+//	authoritiesList.add(new SimpleGrantedAuthority("user"));
+//	
+//	UserDetails venkyUser=new User("venky","123",authoritiesList);
+//	InMemoryUserDetailsManager inMemoryUserDetailsManager=new InMemoryUserDetailsManager();
+//	inMemoryUserDetailsManager.createUser(venkyUser);
+//	return inMemoryUserDetailsManager;
+//	
+//	}
+//	@Bean
+//	PasswordEncoder passwordEncoder() {
+//		return NoOpPasswordEncoder.getInstance();
+//	}
 
 }
