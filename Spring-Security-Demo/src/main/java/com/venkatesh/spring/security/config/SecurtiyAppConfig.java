@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -20,19 +21,33 @@ public class SecurtiyAppConfig {
 	
 	@Bean
 	public InMemoryUserDetailsManager setUpUsers() {
-		UserDetails user1=User.withUsername("venky").password("venky").roles("admin","user").build();
-		UserDetails user2=User.withUsername("abc").password("abc").roles("admin","user").build();
+		UserDetails user1=User
+				.withUsername("venky")
+				.password("$2a$12$6i4cpVYbdrUOvRx5f7ZOxOLUuHEXVveAWsvbFPhs2.hcp9utKynYG")
+				.roles("admin","user")
+				.build();
+		UserDetails user2=User
+				.withUsername("abc")
+				.password("abc")
+				.roles("admin","user")
+				.build();
 		
 //		InMemoryUserDetailsManager inMemoryUserDetailsManager=new InMemoryUserDetailsManager();
 //		inMemoryUserDetailsManager.createUser(user1);
 //		inMemoryUserDetailsManager.createUser(user2);
 
 		return new InMemoryUserDetailsManager(user1,user2);
+		
 	}
 	@Bean
 	PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
+		return new BCryptPasswordEncoder();
 	}
+	
+//	@Bean
+//	PasswordEncoder passwordEncoder() {
+//		return NoOpPasswordEncoder.getInstance();
+//	}
 	
 	
 	
